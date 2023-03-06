@@ -1,16 +1,25 @@
 package br.com.banco;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 public class Cliente {
 
-	private String name, address, birthday;	
+	protected String name, address;
+	protected final Date birthday;
+	
 	
 
-	public Cliente(String name, String address, String birthday) {
+	public Cliente(String name, String address, String birthday) throws ParseException { //Converter date para string em birthday
 		super();
 		this.name = name;
 		this.address = address;
-		this.birthday = birthday;
-	
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		this.birthday = format.parse(birthday);
+		
+		
 	}
 
 	public String getName() {
@@ -29,13 +38,9 @@ public class Cliente {
 		this.address = address;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-
+	
 	
 }

@@ -1,6 +1,7 @@
 package br.com.banco;
 
-public class ContaCorrente extends Conta {
+
+public final class ContaCorrente extends Conta { //final na classe impede de ser herdada
 
 	double saldoInvestimento; // Atributo ContaCorrente
 
@@ -31,6 +32,8 @@ public class ContaCorrente extends Conta {
 	public void exibirSaldo() {
 		double saldoTotal = this.balance + this.saldoInvestimento;
 		System.out.println("Cliente: " + this.cliente.getName());
+		System.out.println("Data Abertura: " + this.dataAbertura);
+		System.out.println("Data Nascimento: " + this.cliente.getBirthday());
 		System.out.println("Saldo Conta Corrente: R$" + this.balance);
 		System.out.println("Saldo Investimento: R$" + this.saldoInvestimento);
 		System.out.println("Saldo total: R$ " + saldoTotal + "\n");

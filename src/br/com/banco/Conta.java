@@ -1,10 +1,13 @@
 package br.com.banco;
 
+import java.util.Date;
+
 public abstract class Conta {
 
 	protected Cliente cliente;
 	protected long id;
 	protected double balance;
+	protected Date dataAbertura;
 	private static int contador;  // static é um atributo apenas para a classe mae
 	
 	public static void exibirContador() {
@@ -15,6 +18,7 @@ public abstract class Conta {
 		
 		this.id = id;
 		this.cliente = cliente;
+		this.dataAbertura = new Date();
 		contador++;
 	}
 
