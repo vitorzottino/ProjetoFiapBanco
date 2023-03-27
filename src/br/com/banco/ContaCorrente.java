@@ -10,22 +10,24 @@ public final class ContaCorrente extends Conta { //final na classe impede de ser
 		this.saldoInvestimento = 0.0;
 	}
 
-	public void investir(double valor, Produto produto) {
+	public void investir(double valor, Produto produto) throws SaldoInsuficiente{
 		
 		boolean teste = this.sacar(valor);
 		if(teste)
 			this.saldoInvestimento += produto.investir(valor);
+		else 
+			throw new SaldoInsuficiente("Saldo de Investimento insuficiente");
 		  	
 	}
 	
-	public void resgatar (double valor) /* throws SaldoInsuficiente */{
+	public void resgatar (double valor)  throws SaldoInsuficiente {
 		if (this.saldoInvestimento >= valor) {
 			this.saldoInvestimento -= valor;
 			this.depositar(valor);
 		} 
-		/*else {
-			throw new SaldoInsuficiente("Saldo de Investimento insuficiente")
-		} */
+		else {
+			throw new SaldoInsuficiente("Saldo insuficiente");
+		} 
 	}
 
 	@Override

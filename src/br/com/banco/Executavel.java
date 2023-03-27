@@ -16,8 +16,15 @@ public class Executavel {
 		Fundos fundos = new Fundos();
 		
 		
-		contaVitor.exibirSaldo();
+		try {
+			contaVitor.sacar(100);
+		} catch (SaldoInsuficiente e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 	
+		contaVitor.depositar(200);
+		contaVitor.exibirSaldo();		
 	}
 }
